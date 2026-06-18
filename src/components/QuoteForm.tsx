@@ -5,7 +5,14 @@ import { useTranslations } from 'next-intl';
 import { whatsappLink } from '@/lib/site';
 import { Icon } from './Icon';
 
-export function QuoteForm({ serviceOptions }: { serviceOptions: { value: string; label: string }[] }) {
+export function QuoteForm({
+  serviceOptions,
+  defaultMessage = '',
+}: {
+  serviceOptions: { value: string; label: string }[];
+  /** Pre-filled message, e.g. an estimate piped from a calculator. */
+  defaultMessage?: string;
+}) {
   const t = useTranslations('quote');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
@@ -79,8 +86,14 @@ export function QuoteForm({ serviceOptions }: { serviceOptions: { value: string;
         </select>
       </Field>
 
+      {defaultMessage && (
+        <p className="rounded-xl border border-gold-400/40 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          {t('estimateAttached')}
+        </p>
+      )}
+
       <Field label={t('message')} required>
-        <textarea name="message" required rows={5} className="input" />
+        <textarea name="message" required rows={defaultMessage ? 8 : 5} defaultValue={defaultMessage} className="input" />
       </Field>
 
       {status === 'error' && <p className="text-sm font-medium text-red-600">{t('error')}</p>}

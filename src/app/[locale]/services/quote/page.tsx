@@ -21,7 +21,13 @@ export async function generateMetadata({
   });
 }
 
-export default async function QuotePage({ params: { locale } }: { params: { locale: string } }) {
+export default async function QuotePage({
+  params: { locale },
+  searchParams,
+}: {
+  params: { locale: string };
+  searchParams: { ref?: string; estimate?: string };
+}) {
   setRequestLocale(locale);
   const l = locale as Locale;
   const t = await getTranslations('quote');
@@ -29,11 +35,18 @@ export default async function QuotePage({ params: { locale } }: { params: { loca
 
   const serviceOptions = services.map((s) => ({ value: s.slug, label: pick(s.title, l) }));
 
+  // An estimate piped from a calculator is pre-filled into the message so the
+  // request still flows through the existing /api/quote endpoint unchanged.
+  const estimate = typeof searchParams.estimate === 'string' ? searchParams.estimate : '';
+  const defaultMessage = estimate
+    ? `${t('estimateHeading')}\n${estimate}\n\n`
+    : '';
+
   return (
     <>
       <PageHero title={t('title')} subtitle={t('subtitle')} icon="document" />
       <div className="container-page max-w-3xl py-12">
-        <QuoteForm serviceOptions={serviceOptions} />
+        <QuoteForm serviceOptions={serviceOptions} defaultMessage={defaultMessage} />
       </div>
     </>
   );

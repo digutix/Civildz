@@ -111,29 +111,125 @@
   },
   "tools": {
     "title": "Outils d'ingénierie",
-    "subtitle": "Des calculatrices gratuites pour accélérer votre travail quotidien en génie civil.",
-    "concrete": {
-      "title": "Calculatrice de béton",
-      "intro": "Estimez le volume de béton et la quantité de ciment, de sable et de gravier pour une dalle, une semelle ou un poteau.",
-      "length": "Longueur",
-      "width": "Largeur",
-      "depth": "Profondeur / Épaisseur",
-      "mix": "Dosage (ciment : sable : gravier)",
-      "wastage": "Pertes",
-      "calculate": "Calculer",
-      "reset": "Réinitialiser",
+    "subtitle": "Des calculatrices gratuites pour accélérer votre travail quotidien en génie civil."
+  },
+  "calc": {
+    "common": {
       "results": "Résultats",
-      "volume": "Volume de béton",
-      "cement": "Ciment",
-      "sand": "Sable",
-      "gravel": "Gravier",
-      "bags": "sacs (50 kg)",
-      "meters": "m",
-      "cubicMeters": "m³",
-      "kg": "kg",
       "copy": "Copier le résultat",
       "copied": "Copié !",
-      "errorPositive": "Veuillez saisir des dimensions positives."
+      "reset": "Réinitialiser",
+      "requestQuote": "Demander un devis avec cette estimation",
+      "errorPositive": "Veuillez saisir des valeurs positives valides.",
+      "fillFields": "Saisissez des valeurs pour voir les résultats."
+    },
+    "units": {
+      "m": "m",
+      "m2": "m²",
+      "m3": "m³",
+      "cm": "cm",
+      "mm": "mm",
+      "kg": "kg",
+      "kgm": "kg/m",
+      "bags": "sacs (50 kg)",
+      "dzd": "DA",
+      "percent": "%",
+      "pcs": "u"
+    },
+    "concrete-calculator": {
+      "title": "Calculatrice de béton",
+      "intro": "Estimez le volume de béton et la quantité de ciment, de sable et de gravier pour une dalle, une semelle ou un poteau.",
+      "fields": {
+        "length": "Longueur",
+        "width": "Largeur",
+        "depth": "Profondeur / Épaisseur",
+        "wastage": "Pertes",
+        "mix": "Dosage (ciment : sable : gravier)"
+      },
+      "results": {
+        "volume": "Volume de béton",
+        "cement": "Ciment",
+        "bags": "Sacs de ciment",
+        "sand": "Sable",
+        "gravel": "Gravier"
+      }
+    },
+    "steel-calculator": {
+      "title": "Calculatrice d'acier",
+      "intro": "Estimez le poids des armatures à partir du diamètre, de la longueur et du nombre de barres.",
+      "fields": {
+        "diameter": "Diamètre de barre",
+        "barLength": "Longueur par barre",
+        "quantity": "Nombre de barres"
+      },
+      "results": {
+        "totalWeight": "Poids total",
+        "perBar": "Poids par barre",
+        "totalLength": "Longueur totale",
+        "unitWeight": "Poids linéique"
+      }
+    },
+    "brick-calculator": {
+      "title": "Calculatrice de briques",
+      "intro": "Estimez le nombre de briques pour un mur, joint de mortier et pertes inclus.",
+      "fields": {
+        "wallLength": "Longueur du mur",
+        "wallHeight": "Hauteur du mur",
+        "brickLength": "Longueur de brique",
+        "brickHeight": "Hauteur de brique",
+        "joint": "Joint de mortier",
+        "wastage": "Pertes"
+      },
+      "results": {
+        "bricks": "Briques nécessaires",
+        "wallArea": "Surface du mur"
+      }
+    },
+    "excavation-volume": {
+      "title": "Volume de terrassement",
+      "intro": "Estimez le volume de terrassement pour tranchées et fouilles, foisonnement inclus.",
+      "fields": {
+        "length": "Longueur",
+        "width": "Largeur",
+        "depth": "Profondeur",
+        "count": "Nombre de fouilles",
+        "swell": "Foisonnement"
+      },
+      "results": {
+        "bankVolume": "Volume en place",
+        "looseVolume": "Volume foisonné"
+      }
+    },
+    "construction-cost": {
+      "title": "Coût de construction",
+      "intro": "Obtenez une estimation rapide du budget à partir de la surface et d'un coût unitaire.",
+      "fields": {
+        "area": "Surface de plancher",
+        "floors": "Nombre d'étages",
+        "unitCost": "Coût par m²"
+      },
+      "results": {
+        "total": "Coût estimé",
+        "builtArea": "Surface bâtie totale"
+      }
+    },
+    "unit-converter": {
+      "title": "Convertisseur d'unités",
+      "intro": "Convertissez les unités courantes de longueur, surface, volume, masse, force et pression.",
+      "fields": {
+        "category": "Grandeur",
+        "value": "Valeur",
+        "from": "De",
+        "to": "Vers"
+      },
+      "categories": {
+        "length": "Longueur",
+        "area": "Surface",
+        "volume": "Volume",
+        "mass": "Masse",
+        "force": "Force",
+        "pressure": "Pression"
+      }
     }
   },
   "software": {
@@ -175,7 +271,9 @@
     "submitting": "Envoi…",
     "success": "Merci ! Votre demande a bien été reçue. Nous vous contacterons bientôt.",
     "error": "Une erreur est survenue. Réessayez ou contactez-nous sur WhatsApp.",
-    "orWhatsApp": "Vous préférez discuter ? Écrivez-nous sur WhatsApp."
+    "orWhatsApp": "Vous préférez discuter ? Écrivez-nous sur WhatsApp.",
+    "estimateHeading": "— Estimation de la calculatrice Civildz —",
+    "estimateAttached": "Votre estimation a été ajoutée au message ci-dessous. Ajoutez vos coordonnées et envoyez."
   },
   "footer": {
     "tagline": "Savoir, outils et services d'ingénierie pour les ingénieurs civils.",

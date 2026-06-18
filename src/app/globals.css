@@ -90,6 +90,11 @@ body {
     @apply text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl;
   }
 
+  /* Shared form input used by the calculators (matches the quote form). */
+  .calc-input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-[0.95rem] text-slate-900 outline-none transition focus:border-brand-600 focus:ring-2 focus:ring-brand-600/15;
+  }
+
   .prose-content {
     @apply leading-relaxed text-slate-700;
   }

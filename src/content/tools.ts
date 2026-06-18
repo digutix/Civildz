@@ -23,7 +23,7 @@ export const tools = [
     slug: 'steel-calculator',
     icon: 'beam',
     order: 2,
-    interactive: false,
+    interactive: true,
     name: tr('Steel Calculator', 'حاسبة الحديد', 'Calculatrice d\'acier'),
     description: tr(
       'Reinforcement weight and bar quantities from rebar schedules.',
@@ -35,7 +35,7 @@ export const tools = [
     slug: 'brick-calculator',
     icon: 'bricks',
     order: 3,
-    interactive: false,
+    interactive: true,
     name: tr('Brick Calculator', 'حاسبة الطوب', 'Calculatrice de briques'),
     description: tr(
       'Number of bricks and mortar for a wall area.',
@@ -47,7 +47,7 @@ export const tools = [
     slug: 'unit-converter',
     icon: 'swap',
     order: 4,
-    interactive: false,
+    interactive: true,
     name: tr('Unit Converter', 'محوّل الوحدات', 'Convertisseur d\'unités'),
     description: tr(
       'Convert length, area, volume, force and pressure units.',
@@ -59,7 +59,7 @@ export const tools = [
     slug: 'excavation-volume',
     icon: 'dig',
     order: 5,
-    interactive: false,
+    interactive: true,
     name: tr('Excavation Volume', 'حجم الحفر', 'Volume de terrassement'),
     description: tr(
       'Earthwork volume for trenches and pits.',
@@ -71,7 +71,7 @@ export const tools = [
     slug: 'construction-cost',
     icon: 'calculator',
     order: 6,
-    interactive: false,
+    interactive: true,
     name: tr('Construction Cost', 'تكلفة البناء', 'Coût de construction'),
     description: tr(
       'Quick budget estimate from area and unit cost.',

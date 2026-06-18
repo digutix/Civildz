@@ -111,29 +111,125 @@
   },
   "tools": {
     "title": "Engineering tools",
-    "subtitle": "Free calculators to speed up your everyday civil-engineering work.",
-    "concrete": {
-      "title": "Concrete Calculator",
-      "intro": "Estimate the concrete volume and the cement, sand and gravel needed for a slab, footing or column.",
-      "length": "Length",
-      "width": "Width",
-      "depth": "Depth / Thickness",
-      "mix": "Mix ratio (cement : sand : gravel)",
-      "wastage": "Wastage",
-      "calculate": "Calculate",
-      "reset": "Reset",
+    "subtitle": "Free calculators to speed up your everyday civil-engineering work."
+  },
+  "calc": {
+    "common": {
       "results": "Results",
-      "volume": "Concrete volume",
-      "cement": "Cement",
-      "sand": "Sand",
-      "gravel": "Gravel",
-      "bags": "bags (50 kg)",
-      "meters": "m",
-      "cubicMeters": "m³",
-      "kg": "kg",
       "copy": "Copy result",
       "copied": "Copied!",
-      "errorPositive": "Please enter positive dimensions."
+      "reset": "Reset",
+      "requestQuote": "Request a quote with this estimate",
+      "errorPositive": "Please enter valid positive values.",
+      "fillFields": "Enter values to see the results."
+    },
+    "units": {
+      "m": "m",
+      "m2": "m²",
+      "m3": "m³",
+      "cm": "cm",
+      "mm": "mm",
+      "kg": "kg",
+      "kgm": "kg/m",
+      "bags": "bags (50 kg)",
+      "dzd": "DZD",
+      "percent": "%",
+      "pcs": "pcs"
+    },
+    "concrete-calculator": {
+      "title": "Concrete Calculator",
+      "intro": "Estimate the concrete volume and the cement, sand and gravel needed for a slab, footing or column.",
+      "fields": {
+        "length": "Length",
+        "width": "Width",
+        "depth": "Depth / Thickness",
+        "wastage": "Wastage",
+        "mix": "Mix ratio (cement : sand : gravel)"
+      },
+      "results": {
+        "volume": "Concrete volume",
+        "cement": "Cement",
+        "bags": "Cement bags",
+        "sand": "Sand",
+        "gravel": "Gravel"
+      }
+    },
+    "steel-calculator": {
+      "title": "Steel Calculator",
+      "intro": "Estimate the weight of reinforcement steel from the bar diameter, length and quantity.",
+      "fields": {
+        "diameter": "Bar diameter",
+        "barLength": "Length per bar",
+        "quantity": "Number of bars"
+      },
+      "results": {
+        "totalWeight": "Total weight",
+        "perBar": "Weight per bar",
+        "totalLength": "Total length",
+        "unitWeight": "Unit weight"
+      }
+    },
+    "brick-calculator": {
+      "title": "Brick Calculator",
+      "intro": "Estimate the number of bricks for a wall, including the mortar joint and wastage.",
+      "fields": {
+        "wallLength": "Wall length",
+        "wallHeight": "Wall height",
+        "brickLength": "Brick length",
+        "brickHeight": "Brick height",
+        "joint": "Mortar joint",
+        "wastage": "Wastage"
+      },
+      "results": {
+        "bricks": "Bricks needed",
+        "wallArea": "Wall area"
+      }
+    },
+    "excavation-volume": {
+      "title": "Excavation Volume",
+      "intro": "Estimate earthwork volume for trenches and pits, including soil swell (bulking).",
+      "fields": {
+        "length": "Length",
+        "width": "Width",
+        "depth": "Depth",
+        "count": "Number of pits",
+        "swell": "Soil swell"
+      },
+      "results": {
+        "bankVolume": "In-situ (bank) volume",
+        "looseVolume": "Loose volume"
+      }
+    },
+    "construction-cost": {
+      "title": "Construction Cost",
+      "intro": "Get a quick budget estimate from the built area and a unit cost.",
+      "fields": {
+        "area": "Floor area",
+        "floors": "Number of floors",
+        "unitCost": "Cost per m²"
+      },
+      "results": {
+        "total": "Estimated cost",
+        "builtArea": "Total built area"
+      }
+    },
+    "unit-converter": {
+      "title": "Unit Converter",
+      "intro": "Convert between common length, area, volume, mass, force and pressure units.",
+      "fields": {
+        "category": "Quantity",
+        "value": "Value",
+        "from": "From",
+        "to": "To"
+      },
+      "categories": {
+        "length": "Length",
+        "area": "Area",
+        "volume": "Volume",
+        "mass": "Mass",
+        "force": "Force",
+        "pressure": "Pressure"
+      }
     }
   },
   "software": {
@@ -175,7 +271,9 @@
     "submitting": "Sending…",
     "success": "Thanks! Your request has been received. We'll contact you shortly.",
     "error": "Something went wrong. Please try again or contact us on WhatsApp.",
-    "orWhatsApp": "Prefer to chat? Message us on WhatsApp."
+    "orWhatsApp": "Prefer to chat? Message us on WhatsApp.",
+    "estimateHeading": "— Estimate from the Civildz calculator —",
+    "estimateAttached": "Your estimate has been attached to the message below. Just add your contact details and send."
   },
   "footer": {
     "tagline": "Engineering knowledge, tools and services for civil engineers.",
