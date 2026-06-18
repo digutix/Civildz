@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "title": "Civildz — Engineering Platform",
+    "description": "Civildz is an engineering platform for civil engineers: study materials, engineering calculators, software guides, job opportunities and website development services."
+  },
+  "nav": {
+    "home": "Home",
+    "study": "Study",
+    "tools": "Tools",
+    "software": "Software",
+    "jobs": "Jobs",
+    "services": "Web Services",
+    "getQuote": "Get a Quote",
+    "language": "Language"
+  },
+  "common": {
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "learnMore": "Learn more",
+    "comingSoon": "Coming soon",
+    "open": "Open",
+    "back": "Back",
+    "loading": "Loading…",
+    "minutes": "min",
+    "contactUs": "Contact us",
+    "chatOnWhatsApp": "Chat on WhatsApp"
+  },
+  "home": {
+    "hero": {
+      "badge": "For civil engineers",
+      "title": "Learn, calculate and build — all in one place",
+      "subtitle": "Lessons, summaries and solved exercises, free engineering calculators, software guides, job opportunities and professional website development.",
+      "ctaStudy": "Start studying",
+      "ctaTools": "Try the tools"
+    },
+    "tutorials": {
+      "title": "Latest tutorials",
+      "subtitle": "Fresh lessons and how-to guides"
+    },
+    "tools": {
+      "title": "Engineering tools",
+      "subtitle": "Fast, free calculators for the field and the office"
+    },
+    "software": {
+      "title": "Engineering software",
+      "subtitle": "Educational guides for AutoCAD, SAP2000, ETABS and MATLAB"
+    },
+    "exams": {
+      "title": "Exams",
+      "subtitle": "Practice exams with full solutions"
+    },
+    "services": {
+      "title": "Website development",
+      "subtitle": "We build and maintain websites for engineering firms and stores",
+      "cta": "Request a quote"
+    },
+    "featured": {
+      "title": "Featured articles",
+      "subtitle": "Hand-picked reads from the Civildz team"
+    }
+  },
+  "study": {
+    "title": "Study",
+    "subtitle": "Lessons, summaries, videos, solved exercises and exams — organised by subject.",
+    "categories": "Subjects",
+    "lessons": "Lessons",
+    "lesson": "Lesson",
+    "summary": "Summary",
+    "video": "Video",
+    "exercises": "Solved exercises",
+    "exercise": "Exercise",
+    "exams": "Exams",
+    "problem": "Problem",
+    "solution": "Solution",
+    "noLessons": "Lessons for this subject are being prepared.",
+    "watchVideo": "Watch the video"
+  },
+  "tools": {
+    "title": "Engineering tools",
+    "subtitle": "Free calculators to speed up your everyday civil-engineering work.",
+    "concrete": {
+      "title": "Concrete Calculator",
+      "intro": "Estimate the concrete volume and the cement, sand and gravel needed for a slab, footing or column.",
+      "length": "Length",
+      "width": "Width",
+      "depth": "Depth / Thickness",
+      "mix": "Mix ratio (cement : sand : gravel)",
+      "wastage": "Wastage",
+      "calculate": "Calculate",
+      "reset": "Reset",
+      "results": "Results",
+      "volume": "Concrete volume",
+      "cement": "Cement",
+      "sand": "Sand",
+      "gravel": "Gravel",
+      "bags": "bags (50 kg)",
+      "meters": "m",
+      "cubicMeters": "m³",
+      "kg": "kg",
+      "errorPositive": "Please enter positive dimensions."
+    }
+  },
+  "software": {
+    "title": "Engineering software",
+    "subtitle": "Educational, legal guides for the tools every civil engineer should know. Explanations only — no downloads.",
+    "guides": "Guides",
+    "disclaimer": "Civildz provides educational explanations only and does not distribute or crack any software. Please use officially licensed copies."
+  },
+  "jobs": {
+    "title": "Job opportunities",
+    "subtitle": "Training programmes, public competitions and interview tips for civil engineers.",
+    "training": "Training",
+    "competition": "Competition",
+    "tip": "Interview tip",
+    "job": "Job",
+    "deadline": "Deadline",
+    "location": "Location"
+  },
+  "services": {
+    "title": "Website development services",
+    "subtitle": "We design, build and maintain websites for consulting firms and stores — with SEO, maintenance and updates.",
+    "startingFrom": "Starting from",
+    "currency": "DZD",
+    "requestQuote": "Request a quote",
+    "whyUs": "Why Civildz",
+    "features": "What's included"
+  },
+  "quote": {
+    "title": "Request a quote",
+    "subtitle": "Tell us about your project and we'll get back to you, usually within 24 hours.",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "serviceType": "Service",
+    "budget": "Budget (optional)",
+    "message": "Project details",
+    "selectService": "Select a service",
+    "submit": "Send request",
+    "submitting": "Sending…",
+    "success": "Thanks! Your request has been received. We'll contact you shortly.",
+    "error": "Something went wrong. Please try again or contact us on WhatsApp.",
+    "orWhatsApp": "Prefer to chat? Message us on WhatsApp."
+  },
+  "footer": {
+    "tagline": "Engineering knowledge, tools and services for civil engineers.",
+    "sections": "Sections",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "builtWith": "Built for the civil-engineering community."
+  }
+}

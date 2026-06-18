@@ -1,0 +1,148 @@
+// Civildz database schema.
+// Content is multilingual: every user-facing text field is a JSON object
+// shaped like { "en": "...", "ar": "...", "fr": "..." } (see src/lib/i18n-content.ts).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Study subjects, e.g. Strength of Materials, Reinforced Concrete.
+model Category {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  icon        String   @default("book")
+  order       Int      @default(0)
+  title       String
+  description String
+  lessons     Lesson[]
+  exams       Exam[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+/// A lesson within a study subject. Bundles lesson body, a summary and a video.
+model Lesson {
+  id         String     @id @default(cuid())
+  slug       String     @unique
+  order      Int        @default(0)
+  title      String
+  summary    String
+  content    String
+  videoUrl   String?
+  category   Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId String
+  exercises  Exercise[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  @@index([categoryId])
+}
+
+/// A solved exercise attached to a lesson.
+model Exercise {
+  id       String @id @default(cuid())
+  order    Int    @default(0)
+  title    String
+  problem  String
+  solution String
+  lesson   Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  lessonId String
+
+  @@index([lessonId])
+}
+
+/// An exam with solutions for a study subject.
+model Exam {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  order       Int      @default(0)
+  title       String
+  description String
+  // content: { "questions": LocalizedText, "solutions": LocalizedText }
+  content     String
+  durationMin Int      @default(60)
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId  String
+
+  @@index([categoryId])
+}
+
+/// Engineering tool / calculator metadata shown in the tools section.
+model Tool {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  icon        String  @default("calculator")
+  order       Int     @default(0)
+  // Whether an interactive calculator UI exists (vs. "coming soon").
+  interactive Boolean @default(false)
+  name        String
+  description String
+}
+
+/// Educational guide for engineering software (AutoCAD, SAP2000, ETABS, MATLAB).
+model SoftwareArticle {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  software  String // AutoCAD | SAP2000 | ETABS | MATLAB
+  order     Int      @default(0)
+  title     String
+  excerpt   String
+  content   String
+  createdAt DateTime @default(now())
+}
+
+/// Tutorials and featured articles for the homepage and blog.
+model Article {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  type        String   @default("tutorial") // tutorial | featured
+  featured    Boolean  @default(false)
+  title       String
+  excerpt     String
+  content     String
+  coverImage  String?
+  publishedAt DateTime @default(now())
+}
+
+/// Job opportunities: training, competitions and interview tips.
+model JobPosting {
+  id        String    @id @default(cuid())
+  slug      String    @unique
+  type      String    @default("job") // training | competition | tip | job
+  location  String?
+  deadline  DateTime?
+  title     String
+  excerpt   String
+  content   String
+  createdAt DateTime  @default(now())
+}
+
+/// Website development service offerings.
+model Service {
+  id          String @id @default(cuid())
+  slug        String @unique
+  icon        String @default("globe")
+  order       Int    @default(0)
+  priceFrom   Int? // starting price hint (in DZD), optional
+  title       String
+  description String
+  features    String // LocalizedText[] serialised as { en: string[], ... }
+}
+
+/// Quote requests submitted through the website-services form.
+model QuoteRequest {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  serviceType String
+  budget      String?
+  message     String
+  status      String   @default("new") // new | contacted | closed
+  createdAt   DateTime @default(now())
+}

@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "title": "Civildz — Plateforme d'ingénierie",
+    "description": "Civildz est une plateforme d'ingénierie pour les ingénieurs civils : cours, calculatrices, guides logiciels, offres d'emploi et services de développement web."
+  },
+  "nav": {
+    "home": "Accueil",
+    "study": "Études",
+    "tools": "Outils",
+    "software": "Logiciels",
+    "jobs": "Emplois",
+    "services": "Services web",
+    "getQuote": "Demander un devis",
+    "language": "Langue"
+  },
+  "common": {
+    "readMore": "Lire la suite",
+    "viewAll": "Voir tout",
+    "learnMore": "En savoir plus",
+    "comingSoon": "Bientôt disponible",
+    "open": "Ouvrir",
+    "back": "Retour",
+    "loading": "Chargement…",
+    "minutes": "min",
+    "contactUs": "Contactez-nous",
+    "chatOnWhatsApp": "Discuter sur WhatsApp"
+  },
+  "home": {
+    "hero": {
+      "badge": "Pour les ingénieurs civils",
+      "title": "Apprendre, calculer et construire — au même endroit",
+      "subtitle": "Cours, résumés et exercices corrigés, calculatrices gratuites, guides logiciels, offres d'emploi et développement web professionnel.",
+      "ctaStudy": "Commencer à étudier",
+      "ctaTools": "Essayer les outils"
+    },
+    "tutorials": {
+      "title": "Derniers tutoriels",
+      "subtitle": "De nouveaux cours et guides pratiques"
+    },
+    "tools": {
+      "title": "Outils d'ingénierie",
+      "subtitle": "Des calculatrices rapides et gratuites pour le terrain et le bureau"
+    },
+    "software": {
+      "title": "Logiciels d'ingénierie",
+      "subtitle": "Guides pédagogiques pour AutoCAD, SAP2000, ETABS et MATLAB"
+    },
+    "exams": {
+      "title": "Examens",
+      "subtitle": "Examens d'entraînement avec corrigés complets"
+    },
+    "services": {
+      "title": "Développement web",
+      "subtitle": "Nous créons et maintenons des sites pour bureaux d'études et boutiques",
+      "cta": "Demander un devis"
+    },
+    "featured": {
+      "title": "Articles à la une",
+      "subtitle": "Une sélection de l'équipe Civildz"
+    }
+  },
+  "study": {
+    "title": "Études",
+    "subtitle": "Cours, résumés, vidéos, exercices corrigés et examens — organisés par matière.",
+    "categories": "Matières",
+    "lessons": "Cours",
+    "lesson": "Cours",
+    "summary": "Résumé",
+    "video": "Vidéo",
+    "exercises": "Exercices corrigés",
+    "exercise": "Exercice",
+    "exams": "Examens",
+    "problem": "Énoncé",
+    "solution": "Solution",
+    "noLessons": "Les cours de cette matière sont en préparation.",
+    "watchVideo": "Regarder la vidéo"
+  },
+  "tools": {
+    "title": "Outils d'ingénierie",
+    "subtitle": "Des calculatrices gratuites pour accélérer votre travail quotidien en génie civil.",
+    "concrete": {
+      "title": "Calculatrice de béton",
+      "intro": "Estimez le volume de béton et la quantité de ciment, de sable et de gravier pour une dalle, une semelle ou un poteau.",
+      "length": "Longueur",
+      "width": "Largeur",
+      "depth": "Profondeur / Épaisseur",
+      "mix": "Dosage (ciment : sable : gravier)",
+      "wastage": "Pertes",
+      "calculate": "Calculer",
+      "reset": "Réinitialiser",
+      "results": "Résultats",
+      "volume": "Volume de béton",
+      "cement": "Ciment",
+      "sand": "Sable",
+      "gravel": "Gravier",
+      "bags": "sacs (50 kg)",
+      "meters": "m",
+      "cubicMeters": "m³",
+      "kg": "kg",
+      "errorPositive": "Veuillez saisir des dimensions positives."
+    }
+  },
+  "software": {
+    "title": "Logiciels d'ingénierie",
+    "subtitle": "Des guides pédagogiques et légaux pour les outils que tout ingénieur civil doit connaître. Explications uniquement — aucun téléchargement.",
+    "guides": "Guides",
+    "disclaimer": "Civildz fournit uniquement des explications pédagogiques et ne distribue ni ne crack aucun logiciel. Veuillez utiliser des copies sous licence officielle."
+  },
+  "jobs": {
+    "title": "Offres d'emploi",
+    "subtitle": "Programmes de formation, concours publics et conseils d'entretien pour ingénieurs civils.",
+    "training": "Formation",
+    "competition": "Concours",
+    "tip": "Conseil d'entretien",
+    "job": "Emploi",
+    "deadline": "Date limite",
+    "location": "Lieu"
+  },
+  "services": {
+    "title": "Services de développement web",
+    "subtitle": "Nous concevons, créons et maintenons des sites pour bureaux d'études et boutiques — avec SEO, maintenance et mises à jour.",
+    "startingFrom": "À partir de",
+    "currency": "DA",
+    "requestQuote": "Demander un devis",
+    "whyUs": "Pourquoi Civildz",
+    "features": "Ce qui est inclus"
+  },
+  "quote": {
+    "title": "Demander un devis",
+    "subtitle": "Parlez-nous de votre projet et nous vous répondrons, généralement sous 24 heures.",
+    "name": "Nom complet",
+    "email": "E-mail",
+    "phone": "Téléphone (facultatif)",
+    "serviceType": "Service",
+    "budget": "Budget (facultatif)",
+    "message": "Détails du projet",
+    "selectService": "Choisir un service",
+    "submit": "Envoyer la demande",
+    "submitting": "Envoi…",
+    "success": "Merci ! Votre demande a bien été reçue. Nous vous contacterons bientôt.",
+    "error": "Une erreur est survenue. Réessayez ou contactez-nous sur WhatsApp.",
+    "orWhatsApp": "Vous préférez discuter ? Écrivez-nous sur WhatsApp."
+  },
+  "footer": {
+    "tagline": "Savoir, outils et services d'ingénierie pour les ingénieurs civils.",
+    "sections": "Sections",
+    "contact": "Contact",
+    "rights": "Tous droits réservés.",
+    "builtWith": "Conçu pour la communauté du génie civil."
+  }
+}
