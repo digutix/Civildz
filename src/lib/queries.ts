@@ -26,8 +26,26 @@ export function getLessonBySlug(slug: string) {
   });
 }
 
+export function getLessonById(id: string) {
+  return prisma.lesson.findUnique({
+    where: { id },
+    include: { category: true },
+  });
+}
+
+export function getLessons() {
+  return prisma.lesson.findMany({
+    orderBy: { order: 'asc' },
+    include: { category: true },
+  });
+}
+
 export function getTools() {
   return prisma.tool.findMany({ orderBy: { order: 'asc' } });
+}
+
+export function getToolById(id: string) {
+  return prisma.tool.findUnique({ where: { id } });
 }
 
 export function getSoftwareArticles() {

@@ -82,6 +82,7 @@ model Tool {
   interactive Boolean @default(false)
   name        String
   description String
+  link        String?
 }
 
 /// Educational guide for engineering software (AutoCAD, SAP2000, ETABS, MATLAB).

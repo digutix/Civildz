@@ -39,26 +39,52 @@ export default async function AdminDashboard() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
           <div>
             <div className="rule-gold mb-2" />
-            <h1 className="text-xl font-bold">Quote requests</h1>
-            <p className="text-sm text-slate-300">Leads submitted through the website.</p>
+            <h1 className="text-xl font-bold">Admin Dashboard</h1>
+            <p className="text-sm text-slate-300">Manage quote requests, lessons, tools and website content.</p>
           </div>
-          <form action={logout}>
-            <button className="btn border border-white/15 bg-white/5 text-white hover:bg-white/10">
-              Sign out
-            </button>
-          </form>
+          <div className="flex items-center gap-3">
+            <a href="/admin/lessons" className="btn btn-outline border-white/15 bg-white/10 text-white hover:bg-white/15">
+              Lessons
+            </a>
+            <a href="/admin/tools" className="btn btn-outline border-white/15 bg-white/10 text-white hover:bg-white/15">
+              Tools
+            </a>
+            <form action={logout}>
+              <button className="btn border border-white/15 bg-white/5 text-white hover:bg-white/10">
+                Sign out
+              </button>
+            </form>
+          </div>
         </div>
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
         {/* Stats */}
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.key} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              <div className="text-2xl font-extrabold text-slate-900">{s.value}</div>
-              <div className="text-sm text-slate-500">{s.label}</div>
-            </div>
-          ))}
+        
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <a href="/admin/lessons" className="rounded-2xl border border-slate-200 bg-white p-5 text-center text-slate-900 transition hover:shadow-lg">
+            <div className="text-2xl font-extrabold">Lessons</div>
+            <div className="mt-1 text-sm text-slate-500">Manage study lessons</div>
+          </a>
+          <a href="/admin/tools" className="rounded-2xl border border-slate-200 bg-white p-5 text-center text-slate-900 transition hover:shadow-lg">
+            <div className="text-2xl font-extrabold">Tools</div>
+            <div className="mt-1 text-sm text-slate-500">Manage engineering tools</div>
+          </a>
+          <a href="/admin" className="rounded-2xl border border-slate-200 bg-white p-5 text-center text-slate-900 transition hover:shadow-lg">
+            <div className="text-2xl font-extrabold">Requests</div>
+            <div className="mt-1 text-sm text-slate-500">View quote requests</div>
+          </a>
+        </div>
+
+        <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.key} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="text-2xl font-extrabold text-slate-900">{s.value}</div>
+                <div className="text-sm text-slate-500">{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Table */}
