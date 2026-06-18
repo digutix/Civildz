@@ -58,14 +58,26 @@ npm run dev           # http://localhost:3000  →  redirects to /en
 1. **Home** — latest tutorials, tools, software, exams, web services, featured articles.
 2. **Study** — Strength of Materials, Reinforced Concrete, Steel, Topography, Soil
    Mechanics. Each subject has lessons (lesson + summary + video + solved exercises) and exams with solutions.
-3. **Engineering tools** — Concrete, Steel, Brick, Unit Converter, Excavation Volume,
-   Construction Cost. The **Concrete Calculator** is fully interactive; the rest are scaffolded.
+3. **Engineering tools** — six interactive calculators (Concrete, Steel, Brick,
+   Unit Converter, Excavation Volume, Construction Cost), all config-driven and
+   able to pipe an estimate into the quote form.
 4. **Engineering software** — educational, legal guides only (no downloads).
 5. **Jobs** — training, public competitions, interview tips.
 6. **Website development** — consulting-firm sites, online stores, SEO/maintenance,
    with a quote-request form.
 
 Contact via WhatsApp: **0540884354**.
+
+## Admin dashboard
+
+A protected dashboard at **`/admin`** lists the quote requests stored in the
+database and lets you move each lead through `new → contacted → closed`.
+
+- Sign in at `/admin/login` with the password in the `ADMIN_TOKEN` environment
+  variable (see `.env` — **change it in production**).
+- Auth is a simple httpOnly-cookie token check (`src/lib/admin-auth.ts`),
+  designed to be upgraded to real sessions later without UI changes.
+- The admin area is excluded from i18n routing, `robots.txt` and the sitemap.
 
 ## Notes on this iteration
 
