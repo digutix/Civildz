@@ -1,9 +1,25 @@
+import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/seo';
 import { pick } from '@/lib/i18n-content';
 import { getServices } from '@/lib/queries';
 import { PageHero } from '@/components/ui';
 import { QuoteForm } from '@/components/QuoteForm';
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.quote' });
+  return buildMetadata({
+    locale: locale as Locale,
+    title: t('title'),
+    description: t('description'),
+    path: '/services/quote',
+  });
+}
 
 export default async function QuotePage({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);

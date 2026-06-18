@@ -1,10 +1,28 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import type { Locale } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/seo';
 import { pick } from '@/lib/i18n-content';
 import { getLessonBySlug } from '@/lib/queries';
 import { Icon } from '@/components/Icon';
+
+export async function generateMetadata({
+  params: { locale, category, lesson },
+}: {
+  params: { locale: string; category: string; lesson: string };
+}): Promise<Metadata> {
+  const l = locale as Locale;
+  const data = await getLessonBySlug(lesson);
+  if (!data) return {};
+  return buildMetadata({
+    locale: l,
+    title: pick(data.title, l),
+    description: pick(data.summary, l).replace(/\n/g, ' ').slice(0, 160),
+    path: `/study/${category}/${lesson}`,
+  });
+}
 
 /** Convert a YouTube watch/share URL into an embeddable URL. */
 function toEmbed(url: string): string {

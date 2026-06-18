@@ -1,8 +1,24 @@
+import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/seo';
 import { pick } from '@/lib/i18n-content';
 import { getCategories } from '@/lib/queries';
 import { PageHero, LinkCard } from '@/components/ui';
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.study' });
+  return buildMetadata({
+    locale: locale as Locale,
+    title: t('title'),
+    description: t('description'),
+    path: '/study',
+  });
+}
 
 export default async function StudyPage({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);

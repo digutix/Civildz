@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Icon } from './Icon';
 
@@ -20,6 +20,46 @@ interface Result {
   gravelKg: number;
 }
 
+/** Pure calculation — returns null when the inputs are not all valid. */
+function computeConcrete(
+  length: string,
+  width: string,
+  depth: string,
+  ratio: string,
+  wastage: string,
+): Result | null {
+  const L = parseFloat(length);
+  const W = parseFloat(width);
+  const D = parseFloat(depth);
+  const waste = parseFloat(wastage) || 0;
+  const parts = ratio.split(':').map((p) => parseFloat(p.trim()));
+
+  if (
+    [L, W, D].some((n) => !Number.isFinite(n) || n <= 0) ||
+    parts.length !== 3 ||
+    parts.some((p) => !Number.isFinite(p) || p <= 0)
+  ) {
+    return null;
+  }
+
+  const wetVolume = L * W * D * (1 + waste / 100);
+  const dryVolume = wetVolume * DRY_FACTOR;
+  const sum = parts[0] + parts[1] + parts[2];
+
+  const cementVol = (dryVolume * parts[0]) / sum;
+  const sandVol = (dryVolume * parts[1]) / sum;
+  const gravelVol = (dryVolume * parts[2]) / sum;
+  const cementKg = cementVol * CEMENT_DENSITY;
+
+  return {
+    volume: wetVolume,
+    cementKg,
+    cementBags: cementKg / CEMENT_BAG_KG,
+    sandKg: sandVol * SAND_DENSITY,
+    gravelKg: gravelVol * GRAVEL_DENSITY,
+  };
+}
+
 export function ConcreteCalculator() {
   const t = useTranslations('tools.concrete');
 
@@ -28,40 +68,13 @@ export function ConcreteCalculator() {
   const [depth, setDepth] = useState('0.15');
   const [ratio, setRatio] = useState('1:2:4');
   const [wastage, setWastage] = useState('5');
-  const [result, setResult] = useState<Result | null>(null);
-  const [error, setError] = useState('');
+  const [copied, setCopied] = useState(false);
 
-  function calculate() {
-    const L = parseFloat(length);
-    const W = parseFloat(width);
-    const D = parseFloat(depth);
-    const waste = parseFloat(wastage) || 0;
-    const parts = ratio.split(':').map((p) => parseFloat(p.trim()));
-
-    if ([L, W, D].some((n) => !Number.isFinite(n) || n <= 0) || parts.some((p) => !Number.isFinite(p) || p <= 0)) {
-      setError(t('errorPositive'));
-      setResult(null);
-      return;
-    }
-    setError('');
-
-    const wetVolume = L * W * D * (1 + waste / 100);
-    const dryVolume = wetVolume * DRY_FACTOR;
-    const sum = parts[0] + parts[1] + parts[2];
-
-    const cementVol = (dryVolume * parts[0]) / sum;
-    const sandVol = (dryVolume * parts[1]) / sum;
-    const gravelVol = (dryVolume * parts[2]) / sum;
-
-    const cementKg = cementVol * CEMENT_DENSITY;
-    setResult({
-      volume: wetVolume,
-      cementKg,
-      cementBags: cementKg / CEMENT_BAG_KG,
-      sandKg: sandVol * SAND_DENSITY,
-      gravelKg: gravelVol * GRAVEL_DENSITY,
-    });
-  }
+  // Results update live as the user types — no need to press a button.
+  const result = useMemo(
+    () => computeConcrete(length, width, depth, ratio, wastage),
+    [length, width, depth, ratio, wastage],
+  );
 
   function reset() {
     setLength('5');
@@ -69,11 +82,27 @@ export function ConcreteCalculator() {
     setDepth('0.15');
     setRatio('1:2:4');
     setWastage('5');
-    setResult(null);
-    setError('');
   }
 
   const fmt = (n: number) => n.toLocaleString(undefined, { maximumFractionDigits: 2 });
+
+  async function copyResult() {
+    if (!result) return;
+    const lines = [
+      `${t('title')}`,
+      `${t('volume')}: ${fmt(result.volume)} ${t('cubicMeters')}`,
+      `${t('cement')}: ${fmt(result.cementKg)} ${t('kg')} (≈ ${fmt(result.cementBags)} ${t('bags')})`,
+      `${t('sand')}: ${fmt(result.sandKg)} ${t('kg')}`,
+      `${t('gravel')}: ${fmt(result.gravelKg)} ${t('kg')}`,
+    ];
+    try {
+      await navigator.clipboard.writeText(lines.join('\n'));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard API unavailable (e.g. insecure context) — silently ignore.
+    }
+  }
 
   return (
     <div className="grid gap-8 lg:grid-cols-5">
@@ -81,16 +110,16 @@ export function ConcreteCalculator() {
       <div className="card p-6 lg:col-span-3">
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label={`${t('length')} (${t('meters')})`}>
-            <input type="number" value={length} onChange={(e) => setLength(e.target.value)} className="input" min="0" step="0.01" />
+            <input type="number" value={length} onChange={(e) => setLength(e.target.value)} className="input" min="0" step="0.01" inputMode="decimal" />
           </Field>
           <Field label={`${t('width')} (${t('meters')})`}>
-            <input type="number" value={width} onChange={(e) => setWidth(e.target.value)} className="input" min="0" step="0.01" />
+            <input type="number" value={width} onChange={(e) => setWidth(e.target.value)} className="input" min="0" step="0.01" inputMode="decimal" />
           </Field>
           <Field label={`${t('depth')} (${t('meters')})`}>
-            <input type="number" value={depth} onChange={(e) => setDepth(e.target.value)} className="input" min="0" step="0.01" />
+            <input type="number" value={depth} onChange={(e) => setDepth(e.target.value)} className="input" min="0" step="0.01" inputMode="decimal" />
           </Field>
           <Field label={`${t('wastage')} (%)`}>
-            <input type="number" value={wastage} onChange={(e) => setWastage(e.target.value)} className="input" min="0" step="1" />
+            <input type="number" value={wastage} onChange={(e) => setWastage(e.target.value)} className="input" min="0" step="1" inputMode="decimal" />
           </Field>
           <div className="sm:col-span-2">
             <Field label={t('mix')}>
@@ -104,14 +133,10 @@ export function ConcreteCalculator() {
           </div>
         </div>
 
-        {error && <p className="mt-4 text-sm font-medium text-red-600">{error}</p>}
+        {!result && <p className="mt-4 text-sm font-medium text-red-600">{t('errorPositive')}</p>}
 
-        <div className="mt-6 flex gap-3">
-          <button type="button" onClick={calculate} className="btn-primary">
-            <Icon name="calculator" width={18} height={18} />
-            {t('calculate')}
-          </button>
-          <button type="button" onClick={reset} className="btn-outline">
+        <div className="mt-6">
+          <button type="button" onClick={reset} className="btn-outline w-full sm:w-auto">
             {t('reset')}
           </button>
         </div>
@@ -126,13 +151,24 @@ export function ConcreteCalculator() {
           </h3>
           <div className="rule-gold my-3" />
           {result ? (
-            <dl className="space-y-3">
-              <Row label={t('volume')} value={`${fmt(result.volume)} ${t('cubicMeters')}`} highlight />
-              <Row label={t('cement')} value={`${fmt(result.cementKg)} ${t('kg')}`} />
-              <Row label="" value={`≈ ${fmt(result.cementBags)} ${t('bags')}`} muted />
-              <Row label={t('sand')} value={`${fmt(result.sandKg)} ${t('kg')}`} />
-              <Row label={t('gravel')} value={`${fmt(result.gravelKg)} ${t('kg')}`} />
-            </dl>
+            <>
+              <dl className="space-y-3">
+                <Row label={t('volume')} value={`${fmt(result.volume)} ${t('cubicMeters')}`} highlight />
+                <Row label={t('cement')} value={`${fmt(result.cementKg)} ${t('kg')}`} />
+                <Row label="" value={`≈ ${fmt(result.cementBags)} ${t('bags')}`} muted />
+                <Row label={t('sand')} value={`${fmt(result.sandKg)} ${t('kg')}`} />
+                <Row label={t('gravel')} value={`${fmt(result.gravelKg)} ${t('kg')}`} />
+              </dl>
+              <button
+                type="button"
+                onClick={copyResult}
+                className="btn-gold mt-5 w-full"
+                aria-live="polite"
+              >
+                <Icon name={copied ? 'arrow' : 'document'} width={18} height={18} />
+                {copied ? t('copied') : t('copy')}
+              </button>
+            </>
           ) : (
             <p className="text-sm text-slate-400">—</p>
           )}

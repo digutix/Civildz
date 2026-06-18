@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
 import type { Locale } from '@/i18n/routing';
@@ -20,6 +20,19 @@ export function Header({ locale }: { locale: Locale }) {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  // Close the mobile menu whenever the route changes.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Prevent the page scrolling behind the open mobile menu.
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
@@ -70,15 +83,15 @@ export function Header({ locale }: { locale: Locale }) {
       </div>
 
       {open && (
-        <nav className="border-t border-slate-200 bg-white lg:hidden">
-          <div className="container-page flex flex-col py-2">
+        <nav className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-slate-200 bg-white lg:hidden">
+          <div className="container-page flex flex-col gap-1 py-3">
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`rounded-lg px-3 py-2.5 text-sm font-medium ${
-                  isActive(item.href) ? 'bg-brand-50 text-brand-700' : 'text-slate-700'
+                className={`rounded-lg px-4 py-3 text-base font-medium ${
+                  isActive(item.href) ? 'bg-brand-50 text-brand-700' : 'text-slate-700 active:bg-slate-100'
                 }`}
               >
                 {t(item.key)}
@@ -87,9 +100,9 @@ export function Header({ locale }: { locale: Locale }) {
             <Link
               href="/services/quote"
               onClick={() => setOpen(false)}
-              className="btn-accent mt-2 w-full"
+              className="btn-accent mt-2 w-full py-3"
             >
-              <Icon name="document" width={16} height={16} />
+              <Icon name="document" width={18} height={18} />
               {t('getQuote')}
             </Link>
           </div>

@@ -3,6 +3,40 @@
     "title": "Civildz — Plateforme d'ingénierie",
     "description": "Civildz est une plateforme d'ingénierie pour les ingénieurs civils : cours, calculatrices, guides logiciels, offres d'emploi et services de développement web."
   },
+  "seo": {
+    "home": {
+      "title": "Outils, cours et services web d'ingénierie à Jijel",
+      "description": "Civildz est une plateforme de génie civil : calculatrices d'ingénierie gratuites, cours, guides logiciels et création de sites professionnels — services d'ingénierie à Jijel, Algérie."
+    },
+    "study": {
+      "title": "Cours, leçons et examens de génie civil",
+      "description": "Cours, résumés, vidéos, exercices corrigés et examens de génie civil : résistance des matériaux, béton armé, charpente métallique, topographie et mécanique des sols."
+    },
+    "tools": {
+      "title": "Calculatrices d'ingénierie — béton, acier et plus",
+      "description": "Calculatrices d'ingénierie gratuites pour ingénieurs civils : calculatrice de béton, acier, briques, convertisseur d'unités, terrassement et coût de construction."
+    },
+    "concrete": {
+      "title": "Calculatrice de béton — ciment, sable et gravier",
+      "description": "Calculatrice de béton gratuite en ligne : estimez le volume de béton et les quantités de ciment, sable et gravier pour dalles, semelles et poteaux selon le dosage."
+    },
+    "software": {
+      "title": "Guides logiciels d'ingénierie — AutoCAD, SAP2000, ETABS, MATLAB",
+      "description": "Guides pédagogiques pour les logiciels d'ingénierie : AutoCAD, SAP2000, ETABS et MATLAB. Explications légales uniquement — aucun téléchargement."
+    },
+    "jobs": {
+      "title": "Emplois, formations et concours d'ingénierie",
+      "description": "Programmes de formation, concours de recrutement publics et conseils d'entretien pour les ingénieurs civils en Algérie."
+    },
+    "services": {
+      "title": "Création de sites et services d'ingénierie à Jijel",
+      "description": "Développement de sites professionnels pour bureaux d'études et boutiques à Jijel : SEO, maintenance et mises à jour avec un devis gratuit."
+    },
+    "quote": {
+      "title": "Demander un devis gratuit",
+      "description": "Parlez-nous de votre projet et obtenez un devis rapide et gratuit pour votre site avec Civildz — basé à Jijel, Algérie."
+    }
+  },
   "nav": {
     "home": "Accueil",
     "study": "Études",
@@ -97,6 +131,8 @@
       "meters": "m",
       "cubicMeters": "m³",
       "kg": "kg",
+      "copy": "Copier le résultat",
+      "copied": "Copié !",
       "errorPositive": "Veuillez saisir des dimensions positives."
     }
   },

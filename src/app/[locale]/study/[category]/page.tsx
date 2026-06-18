@@ -1,11 +1,29 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import type { Locale } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/seo';
 import { pick, parseJson } from '@/lib/i18n-content';
 import { getCategoryBySlug } from '@/lib/queries';
 import { PageHero, Badge } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+
+export async function generateMetadata({
+  params: { locale, category },
+}: {
+  params: { locale: string; category: string };
+}): Promise<Metadata> {
+  const l = locale as Locale;
+  const cat = await getCategoryBySlug(category);
+  if (!cat) return {};
+  return buildMetadata({
+    locale: l,
+    title: pick(cat.title, l),
+    description: pick(cat.description, l),
+    path: `/study/${category}`,
+  });
+}
 
 export default async function CategoryPage({
   params: { locale, category },

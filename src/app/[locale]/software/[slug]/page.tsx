@@ -1,11 +1,30 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import type { Locale } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/seo';
 import { pick } from '@/lib/i18n-content';
 import { getSoftwareArticleBySlug } from '@/lib/queries';
 import { Badge } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+
+export async function generateMetadata({
+  params: { locale, slug },
+}: {
+  params: { locale: string; slug: string };
+}): Promise<Metadata> {
+  const l = locale as Locale;
+  const article = await getSoftwareArticleBySlug(slug);
+  if (!article) return {};
+  return buildMetadata({
+    locale: l,
+    title: pick(article.title, l),
+    description: pick(article.excerpt, l),
+    path: `/software/${slug}`,
+    keywords: [article.software],
+  });
+}
 
 export default async function SoftwareArticlePage({
   params: { locale, slug },

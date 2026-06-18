@@ -1,9 +1,25 @@
+import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/seo';
 import { pick } from '@/lib/i18n-content';
 import { getSoftwareArticles } from '@/lib/queries';
 import { PageHero, LinkCard, Badge } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.software' });
+  return buildMetadata({
+    locale: locale as Locale,
+    title: t('title'),
+    description: t('description'),
+    path: '/software',
+  });
+}
 
 export default async function SoftwarePage({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);

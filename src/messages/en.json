@@ -3,6 +3,40 @@
     "title": "Civildz — Engineering Platform",
     "description": "Civildz is an engineering platform for civil engineers: study materials, engineering calculators, software guides, job opportunities and website development services."
   },
+  "seo": {
+    "home": {
+      "title": "Engineering Tools, Courses & Web Services in Jijel",
+      "description": "Civildz is a civil-engineering platform offering free engineering calculators, courses, software guides and professional website design — engineering services in Jijel, Algeria."
+    },
+    "study": {
+      "title": "Civil Engineering Courses, Lessons & Exams",
+      "description": "Free civil-engineering lessons, summaries, videos, solved exercises and exams: Strength of Materials, Reinforced Concrete, Steel, Topography and Soil Mechanics."
+    },
+    "tools": {
+      "title": "Engineering Calculators — Concrete, Steel & More",
+      "description": "Free engineering calculators for civil engineers: concrete calculator, steel, brick, unit converter, excavation volume and construction cost."
+    },
+    "concrete": {
+      "title": "Concrete Calculator — Cement, Sand & Gravel",
+      "description": "Free online concrete calculator: estimate concrete volume and the cement, sand and gravel quantities for slabs, footings and columns by mix ratio."
+    },
+    "software": {
+      "title": "Engineering Software Guides — AutoCAD, SAP2000, ETABS, MATLAB",
+      "description": "Educational guides for engineering software: AutoCAD, SAP2000, ETABS and MATLAB. Legal explanations only — no downloads."
+    },
+    "jobs": {
+      "title": "Engineering Jobs, Training & Competitions",
+      "description": "Training programmes, public recruitment competitions and interview tips for civil engineers in Algeria."
+    },
+    "services": {
+      "title": "Website Design & Engineering Services in Jijel",
+      "description": "Professional website development for engineering firms and stores in Jijel: SEO optimisation, maintenance and updates with a free quote."
+    },
+    "quote": {
+      "title": "Request a Free Website Quote",
+      "description": "Tell us about your project and get a free, fast website-development quote from Civildz — based in Jijel, Algeria."
+    }
+  },
   "nav": {
     "home": "Home",
     "study": "Study",
@@ -97,6 +131,8 @@
       "meters": "m",
       "cubicMeters": "m³",
       "kg": "kg",
+      "copy": "Copy result",
+      "copied": "Copied!",
       "errorPositive": "Please enter positive dimensions."
     }
   },
