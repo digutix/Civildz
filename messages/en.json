@@ -1,0 +1,45 @@
+{
+  "Nav": {
+    "brand": "CivilDZ",
+    "tagline": "Engineering Platform",
+    "overview": "Overview",
+    "projects": "Projects",
+    "analytics": "Analytics",
+    "documents": "Documents",
+    "team": "Team",
+    "settings": "Settings",
+    "logout": "Sign out"
+  },
+  "Header": {
+    "searchPlaceholder": "Search projects, drawings, reports…",
+    "notifications": "Notifications",
+    "role": "Lead Engineer"
+  },
+  "Dashboard": {
+    "greeting": "Welcome back, Yacine",
+    "subtitle": "Here is what is happening across your projects today.",
+    "stats": {
+      "activeProjects": "Active Projects",
+      "completion": "Avg. Completion",
+      "revenue": "Billed Revenue",
+      "team": "Team Members"
+    },
+    "trendUp": "vs last month",
+    "activity": {
+      "title": "Recent Activity",
+      "subtitle": "Latest updates across your engineering pipeline",
+      "viewAll": "View all",
+      "project": "Project",
+      "owner": "Owner",
+      "status": "Status",
+      "progress": "Progress",
+      "updated": "Updated"
+    },
+    "status": {
+      "active": "Active",
+      "review": "In Review",
+      "completed": "Completed",
+      "delayed": "Delayed"
+    }
+  }
+}

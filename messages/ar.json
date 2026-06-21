@@ -1,0 +1,45 @@
+{
+  "Nav": {
+    "brand": "سيفيل دي زد",
+    "tagline": "منصة الهندسة",
+    "overview": "نظرة عامة",
+    "projects": "المشاريع",
+    "analytics": "التحليلات",
+    "documents": "المستندات",
+    "team": "الفريق",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج"
+  },
+  "Header": {
+    "searchPlaceholder": "ابحث في المشاريع والمخططات والتقارير…",
+    "notifications": "الإشعارات",
+    "role": "مهندس رئيسي"
+  },
+  "Dashboard": {
+    "greeting": "مرحبًا بعودتك، ياسين",
+    "subtitle": "إليك ما يجري في مشاريعك اليوم.",
+    "stats": {
+      "activeProjects": "المشاريع النشطة",
+      "completion": "متوسط الإنجاز",
+      "revenue": "الإيرادات المفوترة",
+      "team": "أعضاء الفريق"
+    },
+    "trendUp": "مقارنة بالشهر الماضي",
+    "activity": {
+      "title": "النشاط الأخير",
+      "subtitle": "آخر التحديثات في مسار العمل الهندسي",
+      "viewAll": "عرض الكل",
+      "project": "المشروع",
+      "owner": "المالك",
+      "status": "الحالة",
+      "progress": "التقدم",
+      "updated": "آخر تحديث"
+    },
+    "status": {
+      "active": "نشط",
+      "review": "قيد المراجعة",
+      "completed": "مكتمل",
+      "delayed": "متأخر"
+    }
+  }
+}

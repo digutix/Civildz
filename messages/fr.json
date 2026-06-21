@@ -1,0 +1,45 @@
+{
+  "Nav": {
+    "brand": "CivilDZ",
+    "tagline": "Plateforme d'ingénierie",
+    "overview": "Aperçu",
+    "projects": "Projets",
+    "analytics": "Analyses",
+    "documents": "Documents",
+    "team": "Équipe",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "Header": {
+    "searchPlaceholder": "Rechercher projets, plans, rapports…",
+    "notifications": "Notifications",
+    "role": "Ingénieur principal"
+  },
+  "Dashboard": {
+    "greeting": "Bon retour, Yacine",
+    "subtitle": "Voici ce qui se passe dans vos projets aujourd'hui.",
+    "stats": {
+      "activeProjects": "Projets actifs",
+      "completion": "Achèvement moyen",
+      "revenue": "Revenus facturés",
+      "team": "Membres de l'équipe"
+    },
+    "trendUp": "vs mois dernier",
+    "activity": {
+      "title": "Activité récente",
+      "subtitle": "Dernières mises à jour de votre pipeline d'ingénierie",
+      "viewAll": "Voir tout",
+      "project": "Projet",
+      "owner": "Responsable",
+      "status": "Statut",
+      "progress": "Progression",
+      "updated": "Mis à jour"
+    },
+    "status": {
+      "active": "Actif",
+      "review": "En revue",
+      "completed": "Terminé",
+      "delayed": "Retardé"
+    }
+  }
+}
