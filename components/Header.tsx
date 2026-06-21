@@ -3,6 +3,8 @@
 import { useTranslations } from 'next-intl';
 import { Search, Bell, ChevronDown } from 'lucide-react';
 
+import LanguageSwitcher from './LanguageSwitcher';
+
 export default function Header() {
   const t = useTranslations('Header');
 
@@ -19,6 +21,9 @@ export default function Header() {
       </div>
 
       <div className="flex flex-1 items-center justify-end gap-2 sm:gap-3 md:flex-none">
+        {/* Language switcher */}
+        <LanguageSwitcher />
+
         {/* Notifications */}
         <button
           aria-label={t('notifications')}
