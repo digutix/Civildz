@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import { FolderKanban, Gauge, Wallet, Users } from 'lucide-react';
 import StatCard, { type StatCardProps } from './StatCard';
 
-export default function StatsOverview() {
+export default function DashboardStats() {
   const t = useTranslations('Dashboard');
 
   const stats: StatCardProps[] = [

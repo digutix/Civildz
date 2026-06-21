@@ -1,9 +1,14 @@
 import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 
-import StatsOverview from '@/components/StatsOverview';
+import DashboardStats from '@/components/DashboardStats';
 import RecentActivity from '@/components/RecentActivity';
 import InsightsPanel from '@/components/InsightsPanel';
+
+// NOTE: <Sidebar /> and <Header /> are intentionally NOT imported here.
+// They live in the shell at app/[locale]/layout.tsx, which wraps every page.
+// This page only renders the CONTENT that goes inside the layout's <main>.
+// Adding <Sidebar /> here would render a second, duplicate sidebar.
 
 export default function DashboardPage({
   params,
@@ -25,8 +30,8 @@ export default function DashboardPage({
         <p className="mt-1 text-sm text-slate-400">{t('subtitle')}</p>
       </header>
 
-      {/* Stats overview */}
-      <StatsOverview />
+      {/* Stats overview — 4 glass stat cards with Lucide icons */}
+      <DashboardStats />
 
       {/* Responsive 3-column grid: activity spans 2 cols, insights take the third */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
